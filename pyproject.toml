@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boardaudit"
+version = "0.3.0"
+description = "Authorized-use audit tool for microcontroller boards, routers, and disks: read-only acquisition and analysis with redacted secret reporting."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Jesus Alejandro Juarez Contreras", email = "jesjuarez590@gmail.com" }]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+hardware = ["pyserial>=3.5", "esptool>=4.8"]
+dev = ["pytest>=8.0", "bandit>=1.7"]
+
+[project.scripts]
+boardaudit = "boardaudit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/DevSecurityMX/boardaudit"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
